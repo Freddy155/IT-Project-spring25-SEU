@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<head>
+  <title>Computing Security Project | SEU</title>
+  <link
+    rel="stylesheet"
+    href="https://fonts.google.com/share?selection.family=Tagesschrift"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- This project is created by Nour, Adham, Omar, Rami, Freddy -->
+  <!-- I am Freddy :) -->
+
+  
+  <!--header-->
+  <div class="header">
+    <img class="logo" src="web images/SEU logo.jpeg" />
+    <div class="header-link">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Material</a>
+      <a href="https://seu.edu.eg/" target="_blank">SEU website</a>
+    </div>
+  </div>
+
+  <!--welcome page-->
+  <div class="welcome-page">
+    <h1>WELCOME COMPUTING SECURITY STUDENTS!</h1>
+  </div>
+
+  <div class="about">
+    <h2>----ABOUT THIS PROGRAM----</h2>
+    <p>
+      The Computing Security major prepares students to design, implement, and
+      manage secure computing environments. It combines principles from computer
+      science, information technology, and criminal justice to address modern
+      cybersecurity challenges. Students learn how to protect digital assets,
+      detect vulnerabilities, respond to cyber incidents, and ensure the
+      confidentiality, integrity, and availability of information.
+    </p>
+  </div>
+
+  <h2>------MATERIAL------</h2>
+
+  <div class="materials" id="materials-container">
+    <!-- Materials will be dynamically inserted here -->
+  </div>
+
+  <h2 class="projects-title">----PROJECTS MADE BY STUDENTS----</h2>
+  <div class="projects">
+    <div class="cards-container">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="web images/smart bin project.jpeg" alt="IMG" />
+          </div>
+          <div class="card-back">
+            <h3 class="card-title">Smart bin</h3>
+            <p class="card-text">
+              This smart bin automatically opens when any motion or object is
+              detected within the set distance range, the purpose of this smart
+              bin is to make an easier, more hygenic and more enviromently
+              friendly substitute of the average trash bins.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="web images/attendance checker project.jpeg" alt="IMG" />
+        </div>
+        <div class="card-back">
+          <h3 class="card-title">Attendance checker</h3>
+          <p class="card-text">
+            This attendance checker stores the attendance of each student after
+            they enter their assinged pin on the keypad, which makes it easier
+            and faster to take and manage attendance. It helps keep accurate
+            records, saves time, and reduces mistakes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="web images/sound sensor project.jpeg" alt="IMG" />
+        </div>
+        <div class="card-back">
+          <h3 class="card-title">Sound sensor rgb</h3>
+          <p class="card-text">
+            The Sound Sensor RGP detects noise and sends a signal when it hears
+            a sound above a set level. It can be used in projects like
+            sound-activated lights or alarms.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="web images/coming soon with lock.jpeg" alt="IMG" />
+        </div>
+        <div class="card-back">
+          <h3 class="card-title">WE ARE JUST GETTING STARTED!</h3>
+        </div>
+      </div>
+    </div>
+    <h1>.......</h1>
+  </div>
+
+  <script type="module">
+    // module -> import/export
+    import materials from "./material.js";
+
+    function createCard(data) {
+      const card = document.createElement("div");
+      card.className = "subject-wrapper";
+
+      const title = document.createElement("h3");
+      title.className = "subject-title";
+      title.textContent = `-${data.title}-`;
+      card.appendChild(title);
+
+      const list = document.createElement("div");
+      list.className = "subject-material";
+      const ul = document.createElement("ul");
+
+      /////////////////////////////////////
+
+      
+      const categories = Object.keys(data);
+
+// categories = ["title", "lectures"]
+
+      for (let i = 0; i < categories.length; i++) {
+        const category = categories[i];
+
+        if (category === "title") {
+          continue;
+        }
+
+        const items = data[category];
+
+        for (let j = 0; j < items.length; j++) {
+          const item = items[j];
+
+          const li = document.createElement("li");
+          li.innerHTML =
+            '<a href="' +
+            item.link +
+            '" target="_blank">' +
+            item.title +
+            "</a>";
+          ul.appendChild(li);
+        }
+      }
+
+      list.appendChild(ul);
+      card.appendChild(list);
+      return card;
+    }
+
+    const container = document.getElementById("materials-container");
+
+    for (const data of Object.values(materials)) {
+      container.appendChild(createCard(data));
+    }
+  </script>
+</body>

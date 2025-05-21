@@ -1,0 +1,180 @@
+body{
+margin: 10px;
+font-family: "Tagesschrift", sans-serif ;
+}
+
+.header{
+background-image: url('web\ images/header background.jpg');
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo{
+padding: 20px;
+width: 100px;
+border-radius: 100px;
+}
+
+.header-link a{
+color: white;
+text-decoration: none;
+padding: 20px 20px;
+border-radius: 25px;
+}
+
+.header-link a:hover{
+    background-color: rgb(76, 98, 146);
+    border-radius: 20px;
+}
+
+.welcome-page{
+display: flex;
+justify-content: space-between;
+background-image: url('web\ images/header background.jpg');
+color: white;
+padding: 30px;
+align-items: center;
+border-radius: 0px 0px 50px 50px;
+}
+
+.about{
+text-align: center;
+padding: 50px 0px 50px 0px;
+}
+
+.about p{
+font-size: 25px;
+}
+
+
+body h2{
+text-align: center ;
+}
+
+.materials{
+display:flex;
+gap: 20px;
+flex-wrap: wrap;
+padding: 50px 0px 200px 0px;
+}
+
+.space{
+list-style: none;
+height: 20px;
+}
+
+.subject-material{
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease-out;
+padding: 0px 50px 0px 50px;
+align-items: center;
+}
+
+.subject-wrapper:hover .subject-material{
+max-height: 500px;
+}
+
+.subject-title:hover{
+border-radius: 25px;
+}
+
+.subject-wrapper{
+background-color: rgb(76, 76, 176);
+border-radius: 15px; 
+transition: transform 0.3s ease ;
+}
+
+.subject-wrapper:hover{
+background-color: rgb(140, 140, 190);
+transform: scale(1.05);
+}
+
+.subject-title{
+text-align: center;
+cursor: pointer;
+}
+
+
+
+
+  .projects{
+    display: flex;
+    align-items: center;
+  }
+
+  .projects-title{
+   text-align: center;
+  }
+  
+  .cards-container {
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    padding: 50px;
+  }
+  
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 10px;
+  }
+  
+  .card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .card-front {
+    background-color: #bbb;
+  }
+  
+  .card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-back {
+    background-color: #fff;
+    color: #333;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #222;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    line-height: 1.5;
+  }

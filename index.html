@@ -5,6 +5,7 @@
     rel="stylesheet"
     href="https://fonts.google.com/share?selection.family=Tagesschrift"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -18,8 +19,9 @@
     <img class="logo" src="web images/SEU logo.jpeg" />
     <div class="header-link">
       <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Material</a>
+      <a href="#about-container">About</a>
+      <a href="#projects-container">Projects</a>
+      <a href="#materials-container">Material</a>
       <a href="https://seu.edu.eg/" target="_blank">SEU website</a>
     </div>
   </div>
@@ -29,7 +31,7 @@
     <h1>WELCOME COMPUTING SECURITY STUDENTS!</h1>
   </div>
 
-  <div class="about">
+  <div class="about" id="about-container">
     <h2>----ABOUT THIS PROGRAM----</h2>
     <p>
       The Computing Security major prepares students to design, implement, and
@@ -48,7 +50,7 @@
   </div>
 
   <h2 class="projects-title">----PROJECTS MADE BY STUDENTS----</h2>
-  <div class="projects">
+  <div class="projects" id="projects-container">
     <div class="cards-container">
       <div class="card">
         <div class="card-inner">
@@ -121,7 +123,15 @@
     function createCard(data) {
       const card = document.createElement("div");
       card.className = "subject-wrapper";
-
+      
+      const iconWrapper = document.createElement("div");
+      iconWrapper.className = "icon-wrapper";
+      
+     // const icon = document.createElement("i");
+     // icon.className = "fa-solid fa-book";
+     // iconWrapper.appendChild(icon);
+     // card.appendChild(iconWrapper);
+      
       const title = document.createElement("h3");
       title.className = "subject-title";
       title.textContent = `-${data.title}-`;
@@ -131,12 +141,7 @@
       list.className = "subject-material";
       const ul = document.createElement("ul");
 
-      /////////////////////////////////////
-
-      
       const categories = Object.keys(data);
-
-// categories = ["title", "lectures"]
 
       for (let i = 0; i < categories.length; i++) {
         const category = categories[i];
@@ -151,12 +156,16 @@
           const item = items[j];
 
           const li = document.createElement("li");
-          li.innerHTML =
-            '<a href="' +
-            item.link +
-            '" target="_blank">' +
-            item.title +
-            "</a>";
+          const itemIcon = document.createElement("i");
+          itemIcon.className = "fa-solid fa-file-pdf";
+          
+          const link = document.createElement("a");
+          link.href = item.link;
+          link.target = "_blank";
+          link.textContent = item.title;
+          
+          li.appendChild(itemIcon);
+          li.appendChild(link);
           ul.appendChild(li);
         }
       }
@@ -171,5 +180,4 @@
     for (const data of Object.values(materials)) {
       container.appendChild(createCard(data));
     }
-  </script>
-</body>
+  </script></body>
